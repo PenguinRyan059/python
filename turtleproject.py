@@ -1,4 +1,4 @@
-import turtle
+import turtle #IAmIrrelevant
 
 wn = turtle.Screen()
 jim = turtle.Turtle()
