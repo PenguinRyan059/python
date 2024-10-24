@@ -1,0 +1,69 @@
+import turtle
+import time
+
+wn = turtle.Screen()
+wn.bgcolor("white")
+turt = turtle.Turtle()
+turtsec = turtle.Turtle()
+
+def close():
+    wn.bye() 
+
+wn.onclick(close)
+
+t = input("What background color do you want? ")
+wn.bgcolor(t)
+
+x = input("What shape do you want? (Square, Triangle, Circle, or Hexagon) ")
+z = input("What color do you want? ")
+
+turt.color(z)
+if x == "Square":
+    turt.left(90)
+    for _ in range(4): 
+        turt.forward(100)
+        turt.left(90)  
+elif x == "Triangle":
+    turt.left(45)
+    for _ in range(3):
+        turt.forward(100)
+        turt.left(120)
+elif x == "Circle":
+    turt.circle(50)
+elif x == "Hexagon":
+    for _ in range(6):  
+        turt.forward(100)
+        turt.left(60) 
+
+y = input("What second shape do you want? (Star, Octagon, Decagon) ")
+f = input("What color do you want again? ")
+
+turtsec.color(f)
+if y == "Star":
+    for _ in range(5):
+        turtsec.forward(100) 
+        turtsec.right(144)
+elif y == "Octagon":
+    for _ in range(8):
+        turtsec.forward(100) 
+        turtsec.right(45)
+elif y == "Decagon":
+    for _ in range(10):
+        turtsec.forward(100)
+        turtsec.right(36)
+
+g = input("Would you like the screen to flash between two colors? (Yes/No) ")
+if g == "Yes":
+    u = input("With what color? ")
+    flashing = True
+    while flashing:
+        wn.bgcolor(u)
+        time.sleep(0.5)
+        wn.bgcolor(t)
+        time.sleep(0.5)
+        if turtle.Screen()._root is None:
+            flashing = False
+elif g == "No":
+    print("Your no fun... but ok")
+
+wn.mainloop()
